@@ -3,15 +3,15 @@ package main
 import (
 	"log"
 
+	"github.com/feysalhassan1/Go-API/database"
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
+	database.ConnectDb()
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello and Feysal Yesterday, what are you doing, How is your day, good?")
-	})
-
+	setupRoutes(app)
+	//
 	log.Fatal(app.Listen(":3000"))
 }

@@ -38,4 +38,8 @@ func ConnectDb() {
 
 	log.Println("runnning migration")
 	db.AutoMigrate(&models.Fact{})
+
+	DB = Dbinstance{
+		Db: db,
+	}
 }
